@@ -1,0 +1,144 @@
+arr_people=[]
+a=open('k3120.txt','r',encoding='utf8')
+for i in range(16):
+    arr_people.append(a.readline().split())
+def check(a,k):
+    flag=True
+    count,person=0,-1
+    for p in range(16):
+        proof=True 
+        if count>1:
+            flag=False
+            break
+        for l in range(k):
+            if a[l]!=arr_people[p][l+2]:
+                proof=False
+                break
+        if proof==True:
+            count+=1
+            person=p
+    if count>1:
+        flag=False
+    if flag==True:
+        return person
+    else:
+        return -1
+human=[0,0,0,0,0,0,0]
+print("Загадайте одного из учащихся группы k3120,я его угадаю , задавая вопросы. Отвечайте на них 'Да' либо 'Нет'")
+print("Студент Мужчина?")
+ans=input()
+if ans=='Да'  or ans=='да':
+    human[0]='М'
+else:
+    human[0]='Ж'
+signal=True
+if (check(human,1)!=-1):
+    print('Ваш студент -',arr_people[check(human,1)][0],arr_people[check(human,1)][1])
+    signal=False
+if signal!=False:
+    print('Студент - Блондин?')
+    ans=input()
+    if ans=='Да'  or ans=='да':
+        human[1]='Блондин'
+    else:
+        print('Студент - брюнет?')
+        ans=input()
+        if ans=='Да'  or ans=='да':
+            human[1]='Брюнет'
+        else:
+            print('Волосы студента чёрные?')
+            ans=input()
+            if ans=='Да'  or ans=='да':
+                human[1]='Чёрный'
+            else:
+                print('Волосы студента коричневые?')
+                ans=input()
+                if ans=='Да'  or ans=='да':
+                    human[1]='Коричневый'
+                else:
+                    print('Волосы студента светлые?')
+                    ans=input()
+                    if ans=='Да'  or ans=='да':
+                        human[1]='Светлые'
+if (check(human,2)!=-1):
+    print('Ваш студент -',arr_people[check(human,2)][0],arr_people[check(human,2)][1])
+    signal=False
+if signal!=False:
+    print('Глаза студента голубые?')
+    ans=input()
+    if ans=='Да'  or ans=='да':
+        human[2]='Синий/голубой'
+    else:
+        print('Глаза студента карие?')
+        ans=input()
+        if ans=='Да'  or ans=='да':
+            human[2]='Карий'
+        else:
+            print('Глаза студента зеленые?')
+            ans=input()
+            if ans=='Да'  or ans=='да':
+                human[2]='Зеленый'
+            else:
+                print('Глаза студента серые?')
+                ans=input()
+                if ans=='Да'  or ans=='да':
+                    human[2]='Серый'
+if (check(human,3)!=-1):
+    print('Ваш студент -',arr_people[check(human,3)][0],arr_people[check(human,3)][1])
+    signal=False
+if signal!=False:
+    print("Студент курит?")
+    ans=input()
+    if ans=="Да" or ans=='да':
+        human[3]='Да'
+    else:
+        human[3]="Нет"
+if (check(human,4)!=-1):
+    print('Ваш студент -',arr_people[check(human,4)][0],arr_people[check(human,4)][1])
+    signal=False
+if signal!=False:
+    print('Студент 2005-ого года рождения?')
+    ans=input()
+    if ans=='Да'  or ans=='да':
+        human[4]='2005'
+    else:
+        print('Студент 2004-ого года рождения?')
+        ans=input()
+        if ans=='Да'  or ans=='да':
+            human[4]='2004'
+        else:
+            human[4]='2003'
+if (check(human,5)!=-1):
+    print('Ваш студент -',arr_people[check(human,5)][0],arr_people[check(human,5)][1])
+    signal=False
+if signal!=False:
+    print('Студент родился зимой?')
+    ans=input()
+    if ans=='Да'  or ans=='да':
+        human[5]='Зима'
+    else:
+        print('Студент родился весной?')
+        ans=input()
+        if ans=='Да'  or ans=='да':
+            human[5]='Весна'
+        else:
+            print('Студент родился летом?')
+            ans=input()
+            if ans=='Да'  or ans=='да':
+                human[5]='Лето'
+            else:
+                human[5]='Осень'
+if (check(human,6)!=-1):
+    print('Ваш студент -',arr_people[check(human,6)][0],arr_people[check(human,6)][1])
+    signal=False
+if signal!=False:
+    print('Основной язык программирования студента - Питон?')
+    ans=input()
+    if ans=='Да'  or ans=='да':
+        human[6]='Питон'
+    else:
+        human[6]='Языки'
+if (check(human,7)!=-1):
+    print('Ваш студент -',arr_people[check(human,7)][0],arr_people[check(human,7)][1])
+elif signal!=False:
+    print('Такого студента нет')    
